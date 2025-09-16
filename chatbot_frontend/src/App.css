@@ -3,7 +3,7 @@
   /* Light theme colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
+  --text-primary: #0b1b24;
   --text-secondary: #61dafb;
   --border-color: #e9ecef;
   --button-bg: #007bff;
@@ -12,12 +12,12 @@
 
 [data-theme="dark"] {
   /* Dark theme colors */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #282c34;
-  --text-primary: #ffffff;
+  --bg-primary: #0f1214;
+  --bg-secondary: #171b1f;
+  --text-primary: #eef3f6;
   --text-secondary: #61dafb;
-  --border-color: #404040;
-  --button-bg: #0056b3;
+  --border-color: #2a3238;
+  --button-bg: #1d6fe3;
   --button-text: #ffffff;
 }
 
@@ -29,25 +29,14 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: var(--bg-secondary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: stretch;
+  justify-content: flex-start;
+  font-size: 16px;
   color: var(--text-primary);
   transition: background-color 0.3s ease;
   position: relative;
@@ -84,14 +73,8 @@
   transform: translateY(0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Simple utilities */
+.container { width: 100%; }
 
 /* Responsive design for mobile */
 @media (max-width: 768px) {
