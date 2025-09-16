@@ -27,6 +27,20 @@ Launches the test runner in interactive watch mode.
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+## Backend API URL configuration
+
+The frontend calls the backend at a configurable base URL.
+
+- Build-time env: set REACT_APP_BACKEND_API_URL in a `.env` file (see `.env.example`).
+- Runtime override: you can also inject `window.BACKEND_API_URL` in `public/index.html` before the bundle to override the build-time value.
+- Fallback: if neither is provided, the app defaults to `/api` (works with CRA proxy for local development).
+
+Examples:
+- Local/dev using a backend running on port 3001 and base path `/api`:
+  REACT_APP_BACKEND_API_URL=http://localhost:3001/api
+
+The chat endpoint used is: `${BACKEND_API_URL}/chat/`.
+
 ## Customization
 
 ### Colors

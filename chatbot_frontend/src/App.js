@@ -54,9 +54,16 @@ function App() {
   const [errorMsg, setErrorMsg] = useState('');
 
   const listEndRef = useRef(null);
+
+  // Determine API base URL in a configurable way.
+  // Priority:
+  // 1) window.BACKEND_API_URL (can be injected at runtime in index.html)
+  // 2) process.env.REACT_APP_BACKEND_API_URL (set at build time via .env)
+  // 3) fallback to '/api' (works with CRA proxy during local dev)
   const apiBase = useMemo(() => {
-    // Prefer relative /api for same-origin proxy; can be overridden via env at deploy (if needed).
-    return '/api';
+    const runtime = typeof window !== 'undefined' ? window.BACKEND_API_URL : undefined;
+    const buildTime = process.env.REACT_APP_BACKEND_API_URL;
+    return (runtime || buildTime || '/api').replace(/\/+$/, ''); // trim trailing slashes
   }, []);
 
   // Scroll to bottom on new message
