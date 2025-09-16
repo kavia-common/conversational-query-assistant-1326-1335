@@ -9,23 +9,25 @@ This project provides a minimal React template with a clean, modern UI and minim
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
 
-## Getting Started
+## Quick start
 
-In the project directory, you can run:
+1) Install dependencies:
+   cd chatbot_frontend
+   npm install
 
-### `npm start`
+2) Start the backend (in a separate terminal) so API calls succeed:
+   - See backend quickstart under ../conversational-query-assistant-1326-1336/chatbot_backend
+   - By default, the CRA dev server proxies API calls to http://localhost:8000
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3) Start the frontend:
+   npm start
+   Open http://localhost:3000
 
-### `npm test`
+If the backend runs on a different host/port/base path, create a .env file:
+   REACT_APP_BACKEND_API_URL=http://localhost:8000/api
+See .env.example for reference.
 
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Note: Do NOT place your OpenAI key in the frontend. The backend uses OPENAI_API_KEY.
 
 ## Backend API URL configuration
 
@@ -36,8 +38,8 @@ The frontend calls the backend at a configurable base URL.
 - Fallback: if neither is provided, the app defaults to `/api` (works with CRA proxy for local development).
 
 Examples:
-- Local/dev using a backend running on port 3001 and base path `/api`:
-  REACT_APP_BACKEND_API_URL=http://localhost:3001/api
+- Local/dev using a backend running on port 8000 and base path `/api`:
+  REACT_APP_BACKEND_API_URL=http://localhost:8000/api
 
 The chat endpoint used is: `${BACKEND_API_URL}/chat/`.
 
